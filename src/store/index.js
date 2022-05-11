@@ -4,9 +4,14 @@ import {
 	combineReducers,
 	compose,
 	applyMiddleware,
+	bindActionCreators,
 } from "redux";
+import produceReducer from "./produce";
 //TODO Rootreducer
-const Rootreducer = combineReducers(() => {});
+
+const Rootreducer = combineReducers({
+	produce: produceReducer,
+});
 
 let enhancer;
 if (process.env.NODE_ENV !== "production") {

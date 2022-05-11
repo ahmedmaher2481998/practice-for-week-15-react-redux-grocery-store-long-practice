@@ -1,33 +1,39 @@
 .produce-list {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/* background-color: rgb(225, 215, 250); */
 }
 
 .produce-list li {
-  margin-bottom: 8px;
-  width: 400px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
-  border: 1px solid gray;
-  border-radius: 16px;
-  padding: 16px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 400px;
+	background-color: blanchedalmond;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 18px;
+	border: 1px solid gray;
+	border-radius: 16px;
+	padding: 16px;
 }
 
 .produce-list li:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
-.like-button, .plus-button {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  color: red;
-  background-color: white;
+.like-button,
+.plus-button {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	color: red;
+	background-color: white;
 }
 
 button.selected {
-  color: white;
-  background-color: red;
+	color: white;
+	background-color: red;
 }
