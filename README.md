@@ -1,4 +1,3 @@
-
 # Grocery Store App
 
 In this project, you’ll connect Redux to a React application. You'll configure
@@ -9,10 +8,10 @@ how to normalize data in a Redux store.
 When you finish today's project, your application should have the following
 features:
 
-- Display all the produce in a list
-- Add produce to a cart
-- Increment/decrement the quantity of produce in the cart
-- Checkout the cart
+-   Display all the produce in a list
+-   Add produce to a cart
+-   Increment/decrement the quantity of produce in the cart
+-   Checkout the cart
 
 ## Phase 0: Familiarize yourself with the code
 
@@ -51,12 +50,12 @@ component tree).
 
 `npm install` the following dependencies:
 
-- `redux` - the Redux package
-- `react-redux` - for connecting Redux to React
+-   `redux` - the Redux package
+-   `react-redux` - for connecting Redux to React
 
 `npm install -D` the following dev-dependencies:
 
-- `redux-logger` - a debugging tool for logging all actions dispatched
+-   `redux-logger` - a debugging tool for logging all actions dispatched
 
 ### Configure the Redux store
 
@@ -74,13 +73,13 @@ redux.
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 ```
 
-- `createStore` - creates a Redux store
-- `combineReducers` - creates one reducer from multiple reducers as slices of
-  state
-- `applyMiddleware` - a store enhancer that will allow you to attach middlewares
-  (a middleware is a function called before any action hits the root reducer)
-- `compose` - another store enhancer that will allow you to use more than one
-  store enhancer
+-   `createStore` - creates a Redux store
+-   `combineReducers` - creates one reducer from multiple reducers as slices of
+    state
+-   `applyMiddleware` - a store enhancer that will allow you to attach middlewares
+    (a middleware is a function called before any action hits the root reducer)
+-   `compose` - another store enhancer that will allow you to use more than one
+    store enhancer
 
 Next, define the `rootReducer` which will be the root reducer for the Redux
 store. The `rootReducer` will just be the return of `combineReducers` invoked
@@ -89,9 +88,7 @@ with an empty object for now.
 ```js
 // ./src/store/index.js
 // ...
-const rootReducer = combineReducers({
-
-});
+const rootReducer = combineReducers({});
 ```
 
 Now, you are going to create a store enhancer that will be set only when your
@@ -111,10 +108,10 @@ Set the `enhancer` variable when in development to use these enhancers like so:
 let enhancer;
 
 if (process.env.NODE_ENV !== "production") {
-  const logger = require("redux-logger").default;
-  const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  enhancer = composeEnhancers(applyMiddleware(logger));
+	const logger = require("redux-logger").default;
+	const composeEnhancers =
+		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+	enhancer = composeEnhancers(applyMiddleware(logger));
 }
 ```
 
@@ -146,7 +143,7 @@ Finally, define a function called `configureStore` that will take in a
 // ./src/store/index.js
 // ...
 const configureStore = (preloadedState) => {
-  return createStore(rootReducer, preloadedState, enhancer);
+	return createStore(rootReducer, preloadedState, enhancer);
 };
 
 export default configureStore;
@@ -171,31 +168,31 @@ Your entry file should look like this:
 
 ```js
 // ./src/index.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import configureStore from './store';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import configureStore from "./store";
+import "./index.css";
+import App from "./App";
 
 const store = configureStore();
 
 function Root() {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  );
+	return (
+		<Provider store={store}>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</Provider>
+	);
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<Root />
+	</React.StrictMode>,
+	document.getElementById("root")
 );
 ```
 
@@ -217,7 +214,7 @@ development** for testing purposes.
 // ./src/index.js
 // ...
 if (process.env.NODE_ENV !== "production") {
-  window.store = store;
+	window.store = store;
 }
 ```
 
