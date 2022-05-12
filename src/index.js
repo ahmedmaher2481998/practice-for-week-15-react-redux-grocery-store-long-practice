@@ -4,13 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import configStore from "./store";
-import { populateProduce } from "./store/produce";
 import { Provider } from "react-redux";
+//store imports
+import { populateProduce } from "./store/produce";
+import { addTocart } from "./store/cart";
 const store = configStore();
 console.log("App Start");
 if (process.env.NODE_ENV !== "production") {
 	window.store = store;
 	window.populateProduce = populateProduce;
+	window.addTocart = addTocart;
 }
 function Root() {
 	return (
